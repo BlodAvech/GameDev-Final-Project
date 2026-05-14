@@ -21,4 +21,9 @@ public class PlayerAnimation : MonoBehaviour
         get => maxSpeed;
         set => maxSpeed = value;
     }
+
+    public void Jump()
+    {
+        animator.SetTrigger("Jump");
+    }
 }
