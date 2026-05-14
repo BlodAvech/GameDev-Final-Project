@@ -17,9 +17,7 @@ public class CameraController : MonoBehaviour
     private float xRotation;
     private float yRotation;
 
-    
-
-    private void Awake()
+    private void OnEnable()
     {
         InputManager.Controls.Player.Look.performed += ctx => input = ctx.ReadValue<Vector2>(); 
         InputManager.Controls.Player.Look.canceled += ctx => input = Vector2.zero; 

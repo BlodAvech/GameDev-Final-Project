@@ -29,7 +29,10 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerAnimation = GetComponent<PlayerAnimation>();
+    }
 
+    private void OnEnable()
+    {
         InputManager.Controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         InputManager.Controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
