@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Controls",
     "maps": [
         {
@@ -36,15 +37,6 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "bab51727-cdbb-49fe-8005-0ee7b4341581",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "26fb57c8-4336-4db5-8c21-c6849b510f8b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -137,17 +129,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dbe4b072-6564-4d2e-9e74-4a5eff885f5a",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
