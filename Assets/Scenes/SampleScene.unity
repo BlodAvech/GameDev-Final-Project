@@ -261,7 +261,7 @@ MonoBehaviour:
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 64
-  MinimumDistanceFromTarget: 0.3
+  MinimumDistanceFromTarget: 0.01
   AvoidObstacles:
     Enabled: 1
     DistanceLimit: 0
@@ -370,6 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219852605}
+  - component: {fileID: 219852606}
   m_Layer: 0
   m_Name: Constuction
   m_TagString: Untagged
@@ -396,6 +397,22 @@ Transform:
   - {fileID: 1920655411}
   m_Father: {fileID: 1899027948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219852606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219852604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ba429d0cd0c3f4d92ef29dc858d41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TwoStatePlatform
+  firstPos: {fileID: 258872923}
+  secondPos: {fileID: 1920655411}
+  platform: {fileID: 640337537}
+  moveSpeed: 5
 --- !u!1 &258872922
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +554,7 @@ MonoBehaviour:
   orientation: {fileID: 1749491518}
   cameraHolder: {fileID: 1808102150}
   playerCam: {fileID: 103164291}
-  sensitivity: 10
+  sensitivity: 5
   orientationSmooth: 30
   limitX: 70
   cameraDistanceLimit: {x: 2, y: 6}
@@ -801,6 +818,26 @@ PrefabInstance:
     - target: {fileID: 3684580899729569596, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1353,6 +1390,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286944313}
   m_CullTransparentMesh: 1
+--- !u!4 &1288092850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7891170838296899121, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+  m_PrefabInstance: {fileID: 342609138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1301697239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2083,6 +2125,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lever
   promptMessage: 0
+  onLeverSwitched:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 219852606}
+        m_TargetAssemblyTypeName: TwoStatePlatform, Assembly-CSharp
+        m_MethodName: SetMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  stick: {fileID: 1288092850}
+  animationDuration: 0.5
 --- !u!1 &1899027947
 GameObject:
   m_ObjectHideFlags: 0
