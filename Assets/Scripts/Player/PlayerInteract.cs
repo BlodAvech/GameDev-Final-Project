@@ -16,10 +16,16 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask mask;
 
     private Interactable interactable;
+    [SerializeField] private bool useCameraPos = false;
 
     private void OnEnable()
     {
         InputManager.Controls.Player.Interact.performed += _ => Interact();
+    }
+
+    void Start()
+    {
+        if(useCameraPos) cameraHolder = Camera.main.transform;
     }
 
     void Update()
@@ -40,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void Interact()
     {
-        if(interactable != null)interactable.BaseInteract(gameObject);
+        if(interactable != null) if(interactable.CanInteract) interactable.BaseInteract(gameObject);
     }
 
     void OnDrawGizmos()

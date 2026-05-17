@@ -24,6 +24,7 @@ public class Lever : Interactable
     protected override void Interact(GameObject interacter)
     {
         base.Interact(interacter);
+        CanInteract = false;
 
         turnOn = !turnOn;
         onLeverSwitched.Invoke(turnOn);
@@ -52,7 +53,7 @@ public class Lever : Interactable
 
             yield return null;
         }
-
+        CanInteract = true;
         stick.localRotation = targetRotation;
         animationCoroutine = null;
     }

@@ -22,7 +22,7 @@ public class TwoStatePlatform : MonoBehaviour
     {
         while (Vector3.Distance(firstPos.position, secondPos.position) > .1f)
         {
-            platform.position = Vector3.MoveTowards(platform.position, targetPos.position, moveSpeed);
+            platform.position = Vector3.MoveTowards(platform.position, targetPos.position, moveSpeed * Time.fixedDeltaTime);
             yield return null;
         }
         yield return null;

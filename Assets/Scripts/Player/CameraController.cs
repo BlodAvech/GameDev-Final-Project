@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform orientation;
     [SerializeField] private Transform cameraHolder;
+    [SerializeField] private Transform spine;
     [SerializeField] private CinemachineThirdPersonFollow playerCam;
     [SerializeField] private float sensitivity = 15f;
     [SerializeField] private float orientationSmooth = 5f;
@@ -52,6 +53,11 @@ public class CameraController : MonoBehaviour
 
         cameraHolder.rotation = Quaternion.Euler(xRotation , yRotation , 0);
 
+    }
+
+    private void LateUpdate()
+    {
+        spine.rotation = Quaternion.Euler(spine.rotation.eulerAngles.x, spine.rotation.eulerAngles.y , -xRotation - limitX);
     }
 
     private void Zoom(InputAction.CallbackContext ctx)
